@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SametKabayApi", "SametKabayApi\SametKabayApi.csproj", "{9CA147D6-E1EC-4484-B0C2-2BF0DBDE0AAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SametKabay.Core", "SametKabay.Core\SametKabay.Core.csproj", "{7B053B6F-2264-4A31-B867-D2D9395F4531}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SametKabay.Application", "SametKabay.Application\SametKabay.Application.csproj", "{D6F2EEB9-9D92-4BDB-A39D-96C5C630CE0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CA147D6-E1EC-4484-B0C2-2BF0DBDE0AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CA147D6-E1EC-4484-B0C2-2BF0DBDE0AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CA147D6-E1EC-4484-B0C2-2BF0DBDE0AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CA147D6-E1EC-4484-B0C2-2BF0DBDE0AAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B053B6F-2264-4A31-B867-D2D9395F4531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B053B6F-2264-4A31-B867-D2D9395F4531}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B053B6F-2264-4A31-B867-D2D9395F4531}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B053B6F-2264-4A31-B867-D2D9395F4531}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6F2EEB9-9D92-4BDB-A39D-96C5C630CE0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F2EEB9-9D92-4BDB-A39D-96C5C630CE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F2EEB9-9D92-4BDB-A39D-96C5C630CE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F2EEB9-9D92-4BDB-A39D-96C5C630CE0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {997CBBD6-21B5-4D68-9F94-66AB33C03A65}
+	EndGlobalSection
+EndGlobal

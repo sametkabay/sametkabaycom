@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SametKabayApi</name>
+    </assembly>
+    <members>
+        <member name="T:SametKabayApi.Controllers.BlogCategoryController">
+            <summary>
+            BlogCategory
+            </summary>
+        </member>
+        <member name="M:SametKabayApi.Controllers.BlogCategoryController.#ctor(SametKabay.Application.BlogCategoryService.IBlogCategoryAppService)">
+            <summary>
+            BlogCategory Ctor
+            </summary>
+            <param name="blogCategoryAppService"></param>
+        </member>
+        <member name="M:SametKabayApi.Controllers.BlogCategoryController.GetCategories">
+            <summary>
+            Get All by BlogCategories
+            </summary>
+            <returns>BlogPosts</returns>
+        </member>
+        <member name="M:SametKabayApi.Controllers.BlogCategoryController.GetCategoriesDetail(System.Nullable{System.Int32},System.String)">
+            <summary>
+            GetCategoriesDetail
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SametKabayApi.Controllers.BlogPostController">
+            <summary>
+            BlogPost
+            </summary>
+        </member>
+        <member name="M:SametKabayApi.Controllers.BlogPostController.#ctor(SametKabay.Application.BlogPostServices.IBlogPostAppService)">
+            <summary>
+            Repository
+            </summary>
+            <param name="blogPostAppService"></param>
+        </member>
+        <member name="M:SametKabayApi.Controllers.BlogPostController.GetAll(SametKabay.Application.PagedAndSortedInputDto)">
+            <summary>
+            Get All by BlogPost
+            </summary>
+            <param name="input"></param>
+            <returns>BlogPosts</returns>
+        </member>
+        <member name="M:SametKabayApi.Controllers.BlogPostController.GetById(System.Int32)">
+            <summary>
+            GetById
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SametKabayApi.Controllers.BlogPostController.GetByTitle(System.String)">
+            <summary>
+            GetByTitle
+            </summary>
+            <param name="title"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SametKabayApi.Controllers.BlogPostController.Random(System.Int32)">
+            <summary>
+            Random Post
+            Max Value = 20
+            </summary>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SametKabayApi.Controllers.UserController">
+            <summary>
+            User Controller
+            </summary>
+        </member>
+        <member name="M:SametKabayApi.Controllers.UserController.#ctor(SametKabay.Application.UserServices.IUserAppServices,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="userAppServices"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:SametKabayApi.Controllers.UserController.CreateUser(SametKabay.Application.UserServices.Dto.CreateUserInputModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SametKabayApi.Controllers.UserController.Login(SametKabay.Application.UserServices.Dto.LoginInputModel)">
+            <summary>
+            Login Method
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SametKabayApi.Model.TokenValidator">
+            <summary>
+            Token Validator
+            </summary>
+        </member>
+        <member name="M:SametKabayApi.Model.TokenValidator.#ctor">
+            Token Validator Ctor
+        </member>
+        <member name="T:SametKabayApi.Program">
+            <summary>
+            Program.cs 
+            </summary>
+        </member>
+        <member name="M:SametKabayApi.Program.Main(System.String[])">
+            <summary>
+            Main Method
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:SametKabayApi.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Create Web Host Builder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SametKabayApi.Startup">
+            <summary>
+            Startup.cs
+            </summary>
+        </member>
+        <member name="M:SametKabayApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Startup
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:SametKabayApi.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="M:SametKabayApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+             ConfigurationServices
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:SametKabayApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Configure
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
