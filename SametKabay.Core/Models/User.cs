@@ -13,8 +13,12 @@ namespace SametKabay.Core.Models
 
         [Key]
         public int Id { get; set; }
+
+        public User CreatorUser { get; set; }
         public DateTime CreationDate { get; set; }
+        public User ModifierUser { get; set; }
         public DateTime? ModifyDate { get; set; }
+        public User DeleterUser { get; set; }
         public DateTime? DeletionDate { get; set; }
         [DefaultValue(false)]
         public bool IsDeleted { get; set; }
@@ -25,7 +29,7 @@ namespace SametKabay.Core.Models
         public bool IsActive { get; set; }
 
         #endregion Interface
-        
+
 
         #region Special Property
 
@@ -71,7 +75,7 @@ namespace SametKabay.Core.Models
 
         public virtual User ActivatingUser { get; set; }
         public ICollection<User> ActivatingUsers { get; set; }
-        
+
         //public ICollection<BlogPost> CreatingPosts { get; set; }
 
         //public ICollection<BlogPost> ModifyingPosts { get; set; }

@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite;
+using Microsoft.AspNetCore.Rewrite.Internal.UrlActions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -63,7 +65,7 @@ namespace SametKabayApi
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+                options.SwaggerDoc("v1", new Info { Title = "SametKabayAPI", Version = "v1" });
                 options.IncludeXmlComments(xmlPath);
             });
 
@@ -78,12 +80,10 @@ namespace SametKabayApi
                         ValidateIssuerSigningKey = true,
                         ValidIssuer = Configuration["Jwt:Issuer"],
                         ValidAudience = Configuration["Jwt:Issuer"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
-                        
-                        
-                        
+                        IssuerSigningKey = new SymmetricSecurityKey(
+                            Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])
+                            )
                     };
-                    
                 });
 
             services.AddAuthorization(options =>
@@ -94,45 +94,46 @@ namespace SametKabayApi
             services.AddHangfire(config =>
                 config.UseSqlServerStorage(Configuration.GetConnectionString("SametDbConnectionString")));
 
-
             services.AddMvc()
                 .AddJsonOptions(
-                    options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                    options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                 );
 
-
-
             services.AddAutoMapper();
-            services.AddDbContext<SametKabayDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SametDbConnectionString")));
+            services.AddDbContext<SametKabayDbContext>(
+                options => options.UseSqlServer(
+                    Configuration.GetConnectionString("SametDbConnectionString")
+                    )
+                );
 
             services.AddTransient<IBlogPostAppService, BlogPostAppService>();
             services.AddTransient<IUserAppServices, UserAppServices>();
             services.AddTransient<IBlogCategoryAppService, BlogCategoryAppService>();
 
-            
-
             services.AddTransient(typeof(UserRepository));
             services.AddTransient(typeof(IBlogPostRepository), typeof(BlogPostRepository));
             services.AddTransient(typeof(IBlogCategoryRepository), typeof(BlogCategoryRepository));
 
-
-
             //UserRepository<User>
             services.AddTransient(typeof(IRepository<User>), typeof(UserRepository));
             services.AddTransient<IMapper, Mapper>();
-            services.AddSingleton<Serilog.ILogger>(x =>
-            {
-                return new LoggerConfiguration().WriteTo.MSSqlServer(Configuration["Serilog:ConnectionString"], Configuration["Serilog:TableName"], autoCreateSqlTable: true).CreateLogger();
-            });
+            services.AddSingleton<Serilog.ILogger>(x => new LoggerConfiguration()
+                .WriteTo.MSSqlServer(Configuration["Serilog:ConnectionString"],
+                    Configuration["Serilog:TableName"],
+                    autoCreateSqlTable: true)
+                .CreateLogger());
         }
+
         private string GetXmlCommentsPath()
         {
             var app = PlatformServices.Default.Application;
             return System.IO.Path.Combine(app.ApplicationBasePath, "SametKabayApi.xml");
         }
+
         /// <summary>
         /// Configure
-        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// This method gets called by the runtime.
+        /// Use this method to configure the HTTP request pipeline.
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
@@ -146,6 +147,7 @@ namespace SametKabayApi
             {
                 app.UseHsts();
             }
+
             app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseSwagger();
@@ -158,7 +160,6 @@ namespace SametKabayApi
             app.UseHangfireDashboard();
             app.UseHangfireServer();
             app.UseMvc();
-
         }
     }
 }
